@@ -31,24 +31,21 @@ const urlConvert = ({ htmlString, baseUrl, handler }: IUrlConvert) => {
   divContainer.style.display = "none";
   divContainer.innerHTML = htmlString;
 
-  const handleElSrc = (el: Element): void => {
-    const src = el.getAttribute("src");
+  const handleElSrc = (attr: string) => (el: Element): void => {
+    const src = el.getAttribute(attr);
     if (src) {
-      el.setAttribute("src", convert(baseUrl, src));
+      let _src = convert(baseUrl, src);
+      if (handler) {
+        _src = handler(src);
+      }
+      el.setAttribute(attr, _src);
     }
   };
 
-  const handleElHref = (el: Element): void => {
-    const src = el.getAttribute("href");
-    if (src) {
-      el.setAttribute("href", convert(baseUrl, src));
-    }
-  };
-
-  divContainer.querySelectorAll("img").forEach(handleElSrc);
-  divContainer.querySelectorAll("script").forEach(handleElSrc);
-  divContainer.querySelectorAll("a").forEach(handleElHref);
-  divContainer.querySelectorAll("link").forEach(handleElHref);
+  divContainer.querySelectorAll("img").forEach(handleElSrc("src"));
+  divContainer.querySelectorAll("script").forEach(handleElSrc("src"));
+  divContainer.querySelectorAll("a").forEach(handleElSrc("href"));
+  divContainer.querySelectorAll("link").forEach(handleElSrc("href"));
 
   return divContainer.innerHTML;
 };
