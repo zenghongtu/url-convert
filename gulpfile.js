@@ -9,10 +9,22 @@ gulp.task("build", () => {
       plugins: [rollupTypescript()]
     })
     .then(bundle => {
-      return bundle.write({
-        file: "./dist/library.js",
+      bundle.write({
+        file: "./dist/index.js",
         format: "umd",
-        name: "library",
+        name: "index",
+        sourcemap: true
+      });
+      bundle.write({
+        file: "./dist/index.es.js",
+        format: "es",
+        name: "index",
+        sourcemap: true
+      });
+      bundle.write({
+        file: "./dist/index.cjs.js",
+        format: "cjs",
+        name: "index",
         sourcemap: true
       });
     });

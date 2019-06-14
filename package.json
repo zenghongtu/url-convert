@@ -1,20 +1,28 @@
 {
   "name": "url-convert",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "0 dependencies. Convert any URL on links, images, scripts, etc to absolute URLs in an HTML source.",
+  "main": "dist/index.js",
+  "module": "dist/rollup.es.js",
+  "jsnext:main": "dist/rollup.es.js",
   "scripts": {
     "start": "jest --watch",
     "build": "gulp",
-    "test": "jest"
+    "test": "jest",
+    "patch": "yarn version --patch",
+    "minor": "yarn version --minor",
+    "major": "yarn version --major"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zenghongtu/url-convert.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "url",
+    "convert"
+  ],
+  "author": "zenghongtu <zenghongtu@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zenghongtu/url-convert/issues"
   },

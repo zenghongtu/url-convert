@@ -23,7 +23,7 @@ const convert = (baseUrl: string, currentUrl: string): string => {
 export interface IUrlConvert {
   htmlString: string;
   baseUrl: string;
-  handler?: () => void;
+  handler?: (nextSrc: string) => string;
 }
 
 const urlConvert = ({ htmlString, baseUrl, handler }: IUrlConvert) => {
@@ -36,7 +36,7 @@ const urlConvert = ({ htmlString, baseUrl, handler }: IUrlConvert) => {
     if (src) {
       let _src = convert(baseUrl, src);
       if (handler) {
-        _src = handler(src);
+        _src = handler(_src);
       }
       el.setAttribute(attr, _src);
     }
