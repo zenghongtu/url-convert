@@ -9,7 +9,7 @@
     "start": "jest --watch",
     "build": "gulp",
     "test": "jest",
-    "publish": "npm run build && npm publish",
+    "prepublish": "npm run build",
     "patch": "yarn version --patch",
     "minor": "yarn version --minor",
     "major": "yarn version --major"
