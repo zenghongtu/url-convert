@@ -5,7 +5,7 @@
 **0 dependencies.**
 Convert any URL on links, images, scripts, etc to absolute URLs in an HTML source.
 
-# Install
+## Install
 
 ```shell
 npm install url-convert
@@ -15,7 +15,7 @@ npm install url-convert
 yarn add url-convert
 ```
 
-# Usage
+## Usage
 
 ```javascript
 import urlConvert from "url-convert";
@@ -64,6 +64,11 @@ urlConvert({ htmlString, baseUrl, handler });
   </div>
 */
 ```
+
+## TODO
+
+- [ ] typings
+- [ ] HTML convert
 
 ## License
 
